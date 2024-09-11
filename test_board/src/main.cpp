@@ -8,11 +8,11 @@
 #define dip
 
 // define pins and variable for feeder
-#define ENA 8      // Enable pin for stepper driver
-#define DIR 7      // Direction pin for stepper driver
-#define PUL 6      // Pulse pin for stepper driver
+#define ENA 2     // Enable pin for stepper driver
+#define DIR 3      // Direction pin for stepper driver
+#define PUL 4      // Pulse pin for stepper driver
 
-#define micro 1   // Can be 1, 2, 4, 8, 16, 32
+#define micro 2   // Can be 1, 2, 4, 8, 16, 32
 
 // define pins for dripper
 #define dripSize A5
@@ -28,6 +28,7 @@
 byte dips = 0;
 
 #define button 13
+#define IN1 A1
 
 // declare funcitons
 void testDips();
@@ -123,7 +124,7 @@ void testFeeder () {
   delay(100);
 
   // one full rotation
-  for (int x = 0; x < 200*micro; x++){
+  for (int x = 0; x < 600*micro; x++){
     digitalWrite(PUL, HIGH);
     delayMicroseconds(500/micro);
     digitalWrite(PUL, LOW);
